@@ -71,3 +71,30 @@ carrito.agregar_producto('camisa', 20000)
 carrito.agregar_producto('pantalon', 20000)
 print("Total con descuento:", carrito.aplicar_descuento()) 
 print("Envío gratis:", carrito.envio_gratis())
+
+#################################################################################################################################
+ 
+# Ejercicios de Python: Casos Prácticos
+#taller funciones
+# 1
+class propina_restaurante:
+    def __init__(self):
+        self.productos = []
+
+    def agregar_producto(self, nombre, precio):
+        self.productos.append({'nombre': nombre, 'precio': precio})
+
+    def aplicar_propina(self):
+        total_actual = self.total()
+        if total_actual > 30000:
+            return total_actual * 0.15
+        return total_actual
+
+    def total(self):
+        return sum(producto['precio'] for producto in self.productos)
+
+# Pruebas
+carrito = propina_restaurante()
+carrito.agregar_producto('camisa', 20000)
+carrito.agregar_producto('pantalon', 20000)
+print("Total con propina:", carrito.aplicar_propina())
